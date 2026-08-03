@@ -2,4 +2,27 @@
   main#card-grid {
     grid-template-columns: 1fr;
   }
+
+  dialog {
+    width: 90vw;
+    max-height: 90vh;
+  }
+
+  #study-modal {
+    width: 90vw;
+    height: 90vh;
+  }
+
+  .stats-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .stats-tools {
+    flex-direction: column;
+  }
+
+  .stats-search {
+    width: 100%;
+  }
 }

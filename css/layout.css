@@ -105,8 +105,12 @@ body > header::after {
 }
 
 dialog {
+  inset: 0;
+  margin: auto;
   width: min(420px, 90vw);
+  max-height: 90vh;
   padding: var(--space-6);
+  overflow: auto;
 }
 
 .modal-title {
