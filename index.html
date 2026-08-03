@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="hu">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flashcards Online</title>
+    <link rel="stylesheet" href="css/index.css" />
+    <script type="module" src="js/index.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>Flashcard Online</h1>
+      <p>Kattints egy kártyára a válasz felfedéséhez.</p>
+    </header>
+
+    <main id="card-grid">
+      <button
+        type="button"
+        class="add-card"
+        id="btn-open-modal"
+        aria-label="Új kártya hozzáadása"
+      >
+        <span class="add-icon">+</span>
+        <span>Új kártya</span>
+      </button>
+    </main>
+
+    <dialog id="card-modal">
+      <form id="card-form" novalidate>
+        <h2 class="modal-title">Új kártya</h2>
+        <p class="modal-error" hidden></p>
+
+        <input type="hidden" name="id" />
+
+        <label>
+          Témakör
+          <input
+            type="text"
+            name="topic"
+            placeholder="pl. HTTP, SQL"
+            maxlength="50"
+            required
+          />
+        </label>
+
+        <label>
+          Kérdés
+          <input
+            type="text"
+            name="question"
+            placeholder="Mi a kérdés?"
+            required
+          />
+        </label>
+
+        <label>
+          Válasz
+          <textarea
+            name="answer"
+            rows="3"
+            placeholder="Mi a válasz?"
+            required
+          ></textarea>
+        </label>
+
+        <div class="modal-actions">
+          <button type="button" id="btn-close-modal">Mégse</button>
+          <button type="submit">Mentés</button>
+        </div>
+      </form>
+    </dialog>
+  </body>
+</html>

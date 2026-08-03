@@ -1,0 +1,53 @@
+@keyframes card-enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.flip-card {
+  animation: card-enter 0.25s ease both;
+}
+
+.flip-card-inner {
+  transform-style: preserve-3d;
+  transition: var(--transition-flip);
+}
+
+.flip-card.is-flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.face {
+  backface-visibility: hidden;
+}
+
+.face--back {
+  transform: rotateY(180deg);
+}
+
+.add-card {
+  transition:
+    background var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.add-card:active {
+  transform: scale(0.98);
+}
+
+.btn-icon {
+  transition:
+    background var(--transition-fast),
+    color var(--transition-fast);
+}
+
+.btn-learned {
+  transition:
+    background var(--transition-fast),
+    color var(--transition-fast);
+}

@@ -1,0 +1,75 @@
+@import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700&family=Mulish:wght@400;600;700&display=swap");
+
+body {
+  font-family: var(--font-body);
+}
+
+body > header h1 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: clamp(2rem, 4vw, 2.7rem);
+}
+
+.add-card {
+  font-family: var(--font-body);
+}
+
+.add-icon {
+  font-family: var(--font-heading);
+  font-size: 2.4rem;
+  line-height: 1;
+}
+
+.topic {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.question {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.flip-hint {
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+.answer {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.btn-learned {
+  font-weight: 700;
+  font-size: 0.8rem;
+}
+
+.modal-title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.4rem;
+}
+
+.modal-error {
+  font-size: 0.85rem;
+}
+
+#card-form label {
+  font-size: 0.85rem;
+}
+
+#card-form input,
+#card-form textarea {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+}
+
+.modal-actions button {
+  font-weight: 700;
+}
