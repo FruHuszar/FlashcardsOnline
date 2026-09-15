@@ -1,0 +1,81 @@
+@keyframes card-enter {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.flip-card {
+  animation: card-enter 0.35s ease both;
+}
+
+.flip-card-inner {
+  transform-style: preserve-3d;
+  transition: var(--transition-flip);
+}
+
+.flip-card.is-flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.face {
+  backface-visibility: hidden;
+}
+
+.face--back {
+  transform: rotateY(180deg);
+}
+
+.add-card {
+  transition:
+    background var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.add-card:active {
+  transform: scale(0.98);
+}
+
+.btn-icon {
+  transition:
+    background var(--transition-fast),
+    color var(--transition-fast);
+}
+
+.btn-learned {
+  transition:
+    background var(--transition-fast),
+    color var(--transition-fast);
+}
+
+@keyframes symbol-enter {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card-symbol {
+  animation: symbol-enter 0.45s 0.08s ease both;
+}
+
+.flip-card {
+  transition: transform var(--transition-fast);
+}
+
+.stats-topic,
+.stats-start,
+.cloud-btn {
+  transition:
+    background var(--transition-fast),
+    color var(--transition-fast),
+    border-color var(--transition-fast);
+}

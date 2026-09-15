@@ -1,0 +1,149 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: var(--content-width);
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  padding: var(--space-7) 0 var(--space-6);
+}
+
+main#card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: var(--space-5);
+}
+
+.grid-message {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: var(--space-6) 0;
+}
+
+#root > header {
+  text-align: center;
+  margin-bottom: var(--space-7);
+}
+
+#root > header p {
+  margin-top: var(--space-2);
+}
+
+#root > header::after {
+  display: block;
+  width: 60px;
+  height: 6px;
+  margin: var(--space-4) auto 0;
+}
+
+.add-card {
+  min-height: 220px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+}
+
+.flip-card {
+  perspective: 1400px;
+  min-height: 220px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 220px;
+}
+
+.face {
+  position: absolute;
+  inset: 0;
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+}
+
+.face--back {
+  justify-content: space-between;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.topic {
+  padding: var(--space-1) var(--space-3);
+}
+
+.card-actions {
+  display: flex;
+  gap: var(--space-1);
+}
+
+.btn-icon {
+  width: 28px;
+  height: 28px;
+}
+
+.question,
+.answer {
+  margin: auto 0;
+}
+
+.btn-learned {
+  align-self: center;
+  padding: var(--space-2) var(--space-4);
+}
+
+dialog {
+  inset: 0;
+  margin: auto;
+  width: min(420px, 90vw);
+  max-height: 90vh;
+  padding: var(--space-6);
+  overflow: auto;
+}
+
+.modal-title {
+  margin-bottom: var(--space-4);
+}
+
+.modal-error {
+  margin-bottom: var(--space-3);
+}
+
+#card-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+#card-form label {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+#card-form input,
+#card-form textarea {
+  padding: var(--space-3);
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-2);
+}
+
+.modal-actions button {
+  padding: var(--space-2) var(--space-5);
+}

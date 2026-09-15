@@ -1,0 +1,216 @@
+body {
+  background: var(--color-bg);
+  color: var(--color-ink);
+}
+
+::selection {
+  background: var(--color-highlight);
+  color: var(--color-ink);
+}
+
+#root > header h1 {
+  color: var(--color-ink);
+}
+
+#root > header p {
+  color: var(--color-ink-muted);
+}
+
+#root > header::before {
+  content: "";
+  display: block;
+  width: 10px;
+  height: 10px;
+  margin: 0 auto var(--space-4);
+  background: var(--color-accent);
+}
+
+#root > .high-score {
+  margin-top: calc(var(--space-7) * -1 + var(--space-4));
+  margin-bottom: var(--space-6);
+  text-align: center;
+  color: var(--color-accent);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+}
+
+#root > header::after {
+  content: "";
+  width: 120px;
+  height: 1px;
+  background: var(--color-border-strong);
+}
+
+.add-card {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: transparent;
+  color: var(--color-ink-muted);
+  cursor: pointer;
+}
+
+.add-card:hover {
+  border-color: var(--color-border-strong);
+  color: var(--color-ink);
+  background: var(--color-surface);
+}
+
+.face {
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-panel);
+}
+
+.face--front {
+  background: var(--color-surface);
+}
+
+.face--back {
+  background: var(--color-surface);
+  border-color: var(--color-border-strong);
+}
+
+.flip-card-inner {
+  cursor: pointer;
+}
+
+.topic {
+  color: var(--color-ink-muted);
+  background: transparent;
+  border-radius: 0;
+  padding-left: 0;
+}
+
+.flip-card.is-learned .face {
+  border-left: 2px solid var(--color-accent);
+}
+
+.flip-card.is-learned .topic {
+  color: var(--color-accent);
+}
+
+.btn-icon {
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  color: var(--color-ink-muted);
+  cursor: pointer;
+}
+
+.btn-icon:hover {
+  background: transparent;
+  color: var(--color-accent);
+}
+
+.flip-hint {
+  color: var(--color-ink-muted);
+}
+
+.btn-learned {
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--color-ink);
+  cursor: pointer;
+}
+
+.btn-learned:hover {
+  background: var(--color-ink);
+  color: var(--color-surface);
+}
+
+.flip-card.is-learned .btn-learned {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.flip-card.is-learned .btn-learned:hover {
+  background: var(--color-accent);
+  color: var(--color-accent-ink);
+}
+
+dialog {
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  color: var(--color-ink);
+  box-shadow: var(--shadow-panel-strong);
+}
+
+dialog::backdrop {
+  background: rgba(23, 23, 26, 0.35);
+}
+
+#study-modal::backdrop {
+  background: rgba(23, 23, 26, 0.55);
+  backdrop-filter: blur(7px) saturate(0.9);
+  -webkit-backdrop-filter: blur(7px) saturate(0.9);
+}
+
+input[type="checkbox"],
+input[type="radio"],
+input[type="range"],
+progress {
+  accent-color: var(--color-accent);
+}
+
+.modal-error {
+  color: var(--color-error);
+}
+
+#card-form label {
+  color: var(--color-ink-muted);
+}
+
+#card-form input,
+#card-form textarea {
+  color: var(--color-ink);
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--color-border);
+  border-radius: 0;
+}
+
+#card-form input:focus,
+#card-form textarea:focus {
+  outline: none;
+  border-bottom-color: var(--color-accent);
+}
+
+.modal-actions button {
+  border-radius: var(--radius-pill);
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+#btn-close-modal {
+  background: transparent;
+  border-color: var(--color-border);
+  color: var(--color-ink-muted);
+}
+
+#btn-close-modal:hover {
+  border-color: var(--color-border-strong);
+  color: var(--color-ink);
+}
+
+.modal-actions button[type="submit"] {
+  background: var(--color-accent);
+  color: var(--color-accent-ink);
+}
+
+.modal-actions button[type="submit"]:hover {
+  background: var(--color-accent-strong);
+}
+
+.grid-message {
+  color: var(--color-ink-muted);
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+}
+
+.grid-message--error {
+  color: var(--color-error);
+}

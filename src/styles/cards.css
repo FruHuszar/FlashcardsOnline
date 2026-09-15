@@ -1,0 +1,229 @@
+.face {
+  overflow: hidden;
+}
+
+.face--front > .question,
+.face--back .answer {
+  overflow-wrap: anywhere;
+  hyphens: auto;
+}
+
+.face--front > .question {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: var(--kerdes-sorok, 4);
+  max-height: calc(var(--kerdes-sorok, 4) * 1.45em);
+  overflow: hidden;
+}
+
+.face--back .answer {
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+}
+
+.card-symbol {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: var(--space-4);
+  color: var(--color-ink);
+}
+
+.face--front > .question {
+  margin-top: auto;
+  margin-bottom: var(--space-2);
+  text-align: left;
+}
+
+.face--front > .card-header,
+.face--front > .flip-hint {
+  text-align: left;
+}
+
+.flip-card--solid .face--front {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.flip-card--solid .face--front .card-symbol,
+.flip-card--solid .face--front .question {
+  color: var(--color-paper);
+}
+
+.flip-card--solid .face--front .topic {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.flip-card--solid .face--front .flip-hint {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.flip-card--solid .face--front .btn-icon {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.flip-card--solid .face--front .btn-icon:hover {
+  color: var(--color-paper);
+}
+
+.flip-card--outline .face--front {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-strong);
+  box-shadow: none;
+}
+
+.flip-card--soft .face--front {
+  background: var(--color-surface-back);
+  border-color: transparent;
+}
+
+.flip-card--soft .face--front .face {
+  overflow: hidden;
+}
+
+.face--front > .question,
+.face--back .answer {
+  overflow-wrap: anywhere;
+  hyphens: auto;
+}
+
+.face--front > .question {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: var(--kerdes-sorok, 4);
+  max-height: calc(var(--kerdes-sorok, 4) * 1.45em);
+  overflow: hidden;
+}
+
+.face--back .answer {
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+}
+
+.card-symbol {
+  color: var(--color-accent);
+}
+
+.flip-card.is-learned .face--front {
+  border-left: 2px solid var(--color-accent);
+}
+
+.flip-card--solid.is-learned .face--front {
+  border-left-color: var(--color-paper);
+}
+
+.face--back .answer {
+  position: relative;
+  padding-top: var(--space-4);
+}
+
+.face--back .answer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 28px;
+  height: 1px;
+  background: var(--color-accent);
+  transform: translateX(-50%);
+}
+
+.add-card .add-icon {
+  color: var(--color-accent);
+}
+
+.form-row {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--space-3);
+}
+
+.form-grow {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.form-icon {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+}
+
+.icon-picker {
+  position: relative;
+}
+
+.icon-picker-trigger {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  border: none;
+  border-bottom: 1px solid var(--color-border);
+  border-radius: 0;
+  background: transparent;
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.icon-picker-trigger:hover {
+  border-bottom-color: var(--color-accent);
+}
+
+.icon-picker-arrow {
+  color: var(--color-ink-muted);
+  font-size: 0.7rem;
+}
+
+.icon-picker-list {
+  position: absolute;
+  right: 0;
+  z-index: 5;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: var(--space-1);
+  width: max-content;
+  max-width: min(320px, 70vw);
+  max-height: 220px;
+  margin-top: var(--space-1);
+  padding: var(--space-2);
+  overflow-y: auto;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-panel-strong);
+}
+
+.icon-picker-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  background: transparent;
+  color: var(--color-ink);
+  cursor: pointer;
+}
+
+.icon-picker-item:hover {
+  border-color: var(--color-border);
+  color: var(--color-accent);
+}
+
+.icon-picker-item.is-active {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}

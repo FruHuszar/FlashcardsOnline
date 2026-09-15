@@ -1,0 +1,103 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+Display:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap");
+
+body {
+  font-family: var(--font-body);
+  font-weight: 300;
+  letter-spacing: 0.01em;
+}
+
+#root > header h1 {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: clamp(1.9rem, 4vw, 2.6rem);
+  letter-spacing: 0.06em;
+}
+
+#root > header p {
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+}
+
+.add-card {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 0.8rem;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+}
+
+.add-icon {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.topic {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 0.62rem;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+}
+
+.question {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: var(--kerdes-betu, 1.15rem);
+  line-height: 1.45;
+  text-align: center;
+}
+
+.flip-hint {
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.answer {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: var(--valasz-betu, 0.95rem);
+  line-height: 1.6;
+  text-align: center;
+}
+
+.btn-learned {
+  font-weight: 400;
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.modal-title {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: 1.3rem;
+  letter-spacing: 0.04em;
+}
+
+.modal-error {
+  font-size: 0.82rem;
+}
+
+#card-form label {
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+#card-form input,
+#card-form textarea {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 0.95rem;
+}
+
+.modal-actions button {
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+}
