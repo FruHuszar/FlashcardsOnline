@@ -1,0 +1,78 @@
+import {
+  Atom,
+  Binary,
+  BookOpen,
+  Brain,
+  Calculator,
+  Clock,
+  Code,
+  Cpu,
+  Database,
+  FileText,
+  FlaskConical,
+  Globe,
+  GraduationCap,
+  Heart,
+  Languages,
+  Leaf,
+  Lightbulb,
+  Lock,
+  Map,
+  Microscope,
+  Music,
+  Network,
+  Palette,
+  PenTool,
+  Puzzle,
+  Rocket,
+  Scale,
+  Server,
+  Shield,
+  Star,
+  Target,
+  Terminal,
+} from "lucide-react";
+import { ALAP_IKON } from "./ikonKeszlet.js";
+
+const ELEMEK = {
+  konyv: BookOpen,
+  diploma: GraduationCap,
+  agy: Brain,
+  otlet: Lightbulb,
+  lombik: FlaskConical,
+  szamologep: Calculator,
+  kod: Code,
+  terminal: Terminal,
+  adatbazis: Database,
+  szerver: Server,
+  foldgomb: Globe,
+  halozat: Network,
+  pajzs: Shield,
+  lakat: Lock,
+  processzor: Cpu,
+  binaris: Binary,
+  dokumentum: FileText,
+  toll: PenTool,
+  paletta: Palette,
+  zene: Music,
+  nyelvek: Languages,
+  terkep: Map,
+  atom: Atom,
+  level: Leaf,
+  mikroszkop: Microscope,
+  merleg: Scale,
+  "szív": Heart,
+  ora: Clock,
+  csillag: Star,
+  kirako: Puzzle,
+  "rakéta": Rocket,
+  celtabla: Target,
+};
+
+export default function CardIcon({ nev, meret = 34, vastagsag = 1.4, osztaly = "" }) {
+  const Elem = ELEMEK[nev] ?? ELEMEK[ALAP_IKON];
+
+  return (
+    <Elem size={meret} strokeWidth={vastagsag} className={osztaly} aria-hidden="true" />
+  );
+}

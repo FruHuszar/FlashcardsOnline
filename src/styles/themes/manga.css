@@ -1,0 +1,512 @@
+:root[data-theme="manga"] {
+  --color-bg: #fbfbf9;
+  --color-surface: #ffffff;
+  --color-surface-back: #f2f2ef;
+  --color-ink: #111111;
+  --color-ink-soft: #333333;
+  --color-ink-muted: #6e6e6b;
+  --color-border: #cfcfcb;
+  --color-border-strong: #111111;
+
+  --color-accent: #111111;
+  --color-accent-strong: #000000;
+  --color-accent-soft: rgba(17, 17, 17, 0.07);
+  --color-accent-ink: #ffffff;
+  --color-highlight: rgba(17, 17, 17, 0.12);
+
+  --color-paper: #ffffff;
+  --color-gold: #d9d9d5;
+
+  --color-success: #111111;
+  --color-error: #c1121f;
+
+  --font-heading: "Dela Gothic One", "M PLUS 1p", Impact, sans-serif;
+  --font-body: "M PLUS 1p", "Helvetica Neue", Arial, sans-serif;
+
+  --radius-md: 0;
+  --radius-lg: 0;
+  --radius-pill: 0;
+
+  --shadow-panel: none;
+  --shadow-panel-strong: none;
+
+  --manga-vonal: 1.5px solid #111111;
+  --manga-sugar: url("../../assets/themes/manga/shuchusen.svg");
+  --manga-atmenet: url("../../assets/themes/manga/tone-gradient.webp");
+  --manga-tonus: url("../../assets/themes/manga/tone-flat.svg") 0 0 / 6px 6px;
+}
+
+[data-theme="manga"] body {
+  font-weight: 400;
+}
+
+[data-theme="manga"] #root > header::before,
+[data-theme="manga"] #root > header::after {
+  display: none;
+}
+
+[data-theme="manga"] #root > header h1 {
+  font-weight: 400;
+  font-size: clamp(1.8rem, 4.4vw, 2.9rem);
+  letter-spacing: 0.02em;
+}
+
+[data-theme="manga"] #root > header p {
+  margin-top: var(--space-3);
+  color: var(--color-ink-soft);
+  letter-spacing: 0.06em;
+}
+
+[data-theme="manga"] #root > .high-score {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: 0.9rem;
+  letter-spacing: 0.06em;
+}
+
+[data-theme="manga"] .theme-trigger,
+[data-theme="manga"] .carousel-arrow,
+[data-theme="manga"] .shuffle-next,
+[data-theme="manga"] .modal-close {
+  border: var(--manga-vonal);
+  border-radius: 0;
+  background: var(--color-surface);
+  color: var(--color-ink);
+}
+
+[data-theme="manga"] .theme-trigger:hover,
+[data-theme="manga"] .carousel-arrow:hover:not(:disabled),
+[data-theme="manga"] .shuffle-next:hover,
+[data-theme="manga"] .modal-close:hover {
+  background: var(--color-ink);
+  color: var(--color-paper);
+}
+
+[data-theme="manga"] .carousel-dot {
+  border-radius: 0;
+}
+
+[data-theme="manga"] .stats-panel {
+  border-top: var(--manga-vonal);
+  border-bottom: var(--manga-vonal);
+}
+
+[data-theme="manga"] .stats-progress {
+  height: 6px;
+  border: 1px solid var(--color-ink);
+  background: var(--manga-tonus), var(--color-surface);
+}
+
+[data-theme="manga"] .stats-percent {
+  font-size: 1rem;
+}
+
+[data-theme="manga"] .stats-topic {
+  padding: 2px var(--space-2);
+  border: 1px solid transparent;
+  font-weight: 500;
+}
+
+[data-theme="manga"] .stats-topic:hover {
+  border-color: var(--color-ink);
+}
+
+[data-theme="manga"] .stats-topic.is-active {
+  border-color: var(--color-ink);
+  background: var(--color-ink);
+  color: var(--color-paper);
+}
+
+[data-theme="manga"] .stats-start,
+[data-theme="manga"] .settings-start,
+[data-theme="manga"] .result-again,
+[data-theme="manga"] .type-check,
+[data-theme="manga"] .type-next,
+[data-theme="manga"] .swipe-next,
+[data-theme="manga"] .swipe-igen,
+[data-theme="manga"] .modal-actions button[type="submit"],
+[data-theme="manga"] .cloud-btn--primary,
+[data-theme="manga"] #import-modal .modal-actions button.import-primary {
+  border: var(--manga-vonal);
+  background: var(--color-ink);
+  color: var(--color-paper);
+  font-family: var(--font-body);
+  font-weight: 700;
+}
+
+[data-theme="manga"] .stats-start:hover,
+[data-theme="manga"] .settings-start:hover,
+[data-theme="manga"] .result-again:hover,
+[data-theme="manga"] .type-check:hover,
+[data-theme="manga"] .type-next:hover,
+[data-theme="manga"] .swipe-next:hover,
+[data-theme="manga"] .swipe-igen:hover,
+[data-theme="manga"] .modal-actions button[type="submit"]:hover,
+[data-theme="manga"] .cloud-btn--primary:hover:not(:disabled),
+[data-theme="manga"] #import-modal .modal-actions button.import-primary:hover {
+  border-color: var(--color-ink);
+  background: var(--color-surface);
+  color: var(--color-ink);
+  transform: none;
+}
+
+[data-theme="manga"] .cloud-btn:not(.cloud-btn--primary):not(.cloud-btn--ghost),
+[data-theme="manga"] .swipe-nem,
+[data-theme="manga"] #btn-close-modal,
+[data-theme="manga"] #import-modal .modal-actions button.import-secondary,
+[data-theme="manga"] .theme-apply,
+[data-theme="manga"] .btn-learned {
+  border: var(--manga-vonal);
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font-weight: 700;
+}
+
+[data-theme="manga"] .cloud-btn:not(.cloud-btn--primary):not(.cloud-btn--ghost):hover:not(:disabled),
+[data-theme="manga"] .swipe-nem:hover,
+[data-theme="manga"] #btn-close-modal:hover,
+[data-theme="manga"] #import-modal .modal-actions button.import-secondary:hover,
+[data-theme="manga"] .theme-apply:hover:not(:disabled),
+[data-theme="manga"] .btn-learned:hover {
+  border-color: var(--color-ink);
+  background: var(--color-ink);
+  color: var(--color-paper);
+  transform: none;
+}
+
+[data-theme="manga"] .face {
+  border: var(--manga-vonal);
+  background: var(--color-surface);
+}
+
+[data-theme="manga"] .card-symbol {
+  display: none;
+}
+
+[data-theme="manga"] .face .topic,
+[data-theme="manga"] .swipe-card .topic,
+[data-theme="manga"] .shuffle-face .topic,
+[data-theme="manga"] .type > .topic,
+[data-theme="manga"] .fan-question .topic {
+  padding: 1px var(--space-2);
+  background: var(--color-ink);
+  color: var(--color-paper);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+[data-theme="manga"] .face--front > .question {
+  position: relative;
+  display: block;
+  max-height: none;
+  overflow: visible;
+  margin: auto var(--space-2) var(--space-4);
+  padding: var(--space-4) var(--space-5);
+  border: 1.25px solid var(--color-ink);
+  border-radius: 50%;
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: var(--buborek-betu, 0.9rem);
+  font-weight: 500;
+  line-height: 1.35;
+  text-align: center;
+  -webkit-line-clamp: unset;
+}
+
+[data-theme="manga"] .face--front > .question--fekete,
+[data-theme="manga"] .flip-card--solid .face--front > .question--fekete {
+  border-color: var(--color-ink);
+  background: var(--color-ink);
+  color: var(--color-paper);
+}
+
+[data-theme="manga"] .face--front > .question--keskeny {
+  margin-inline: var(--space-6);
+  padding-inline: var(--space-4);
+  border-radius: 46% / 50%;
+}
+
+[data-theme="manga"] .face--front > .question--magas {
+  align-self: center;
+  width: 62%;
+  margin-inline: 0;
+  padding: var(--space-5) var(--space-3);
+  border-radius: 50%;
+}
+
+[data-theme="manga"] .face--front > .question--szogletes {
+  padding: var(--space-3) var(--space-4);
+  border-radius: 6px;
+}
+
+[data-theme="manga"] .face--front > .question--farok::after {
+  content: "";
+  position: absolute;
+  top: calc(100% - 3px);
+  left: 38%;
+  width: 22px;
+  height: 20px;
+  background: url("../../assets/themes/manga/tail.svg") center / 100% 100% no-repeat;
+}
+
+[data-theme="manga"] .face--front > .flip-hint {
+  align-self: flex-end;
+  padding: 1px var(--space-2);
+  background: var(--color-surface);
+  letter-spacing: 0.1em;
+}
+
+[data-theme="manga"] .flip-card--solid .face--front {
+  background: var(--manga-sugar) center / 100% 100% no-repeat, var(--color-surface);
+  border-color: var(--color-ink);
+}
+
+[data-theme="manga"] .flip-card--solid .face--front .btn-icon,
+[data-theme="manga"] .flip-card--solid .face--front .flip-hint {
+  color: var(--color-ink);
+}
+
+[data-theme="manga"] .flip-card--solid .face--front .topic {
+  color: var(--color-paper);
+}
+
+[data-theme="manga"] .flip-card--outline .face--front {
+  background: var(--color-surface);
+  border: var(--manga-vonal);
+}
+
+[data-theme="manga"] .flip-card--soft .face--front {
+  background: var(--manga-atmenet) left bottom / 240px 90px repeat-x, var(--color-surface);
+  border-color: var(--color-ink);
+}
+
+[data-theme="manga"] .face--back .answer {
+  padding: var(--space-3) var(--space-4);
+  border: 1.25px solid var(--color-ink);
+  background: var(--color-surface);
+  font-family: var(--font-body);
+  font-weight: 500;
+  line-height: 1.55;
+}
+
+[data-theme="manga"] .face--back .answer::before {
+  display: none;
+}
+
+[data-theme="manga"] .flip-card.is-learned .face,
+[data-theme="manga"] .flip-card.is-learned .face--front {
+  border-left: var(--manga-vonal);
+}
+
+[data-theme="manga"] .flip-card.is-learned .face--front::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  border-style: solid;
+  border-width: 0 0 22px 22px;
+  border-color: transparent transparent var(--color-ink) transparent;
+}
+
+[data-theme="manga"] .add-card {
+  border: var(--manga-vonal);
+  color: var(--color-ink);
+}
+
+[data-theme="manga"] .add-card:hover {
+  background: var(--manga-tonus), var(--color-surface);
+}
+
+[data-theme="manga"] .add-card .add-icon {
+  color: var(--color-ink);
+}
+
+[data-theme="manga"] dialog {
+  border: var(--manga-vonal);
+}
+
+[data-theme="manga"] dialog::backdrop,
+[data-theme="manga"] #study-modal::backdrop {
+  background: var(--manga-tonus), rgba(251, 251, 249, 0.72);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+[data-theme="manga"] .modal-title,
+[data-theme="manga"] .settings-title,
+[data-theme="manga"] .result-title,
+[data-theme="manga"] .theme-slide-name {
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+[data-theme="manga"] #import-modal .modal-title::before,
+[data-theme="manga"] #card-modal .modal-title::before {
+  display: none;
+}
+
+[data-theme="manga"] #card-form input,
+[data-theme="manga"] #card-form textarea,
+[data-theme="manga"] .icon-picker-trigger,
+[data-theme="manga"] .stats-search {
+  border-bottom: var(--manga-vonal);
+}
+
+[data-theme="manga"] .import-text,
+[data-theme="manga"] .settings-db,
+[data-theme="manga"] .type-input,
+[data-theme="manga"] .icon-picker-list {
+  border: var(--manga-vonal);
+}
+
+[data-theme="manga"] .study-head {
+  border-bottom: var(--manga-vonal);
+}
+
+[data-theme="manga"] .study-progress,
+[data-theme="manga"] .study-score {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  color: var(--color-ink);
+}
+
+[data-theme="manga"] .settings-item {
+  border: var(--manga-vonal);
+  background: var(--color-surface);
+}
+
+[data-theme="manga"] .settings-item:has(.settings-check:not(:checked)) {
+  background: var(--manga-tonus), var(--color-surface);
+  color: var(--color-ink-muted);
+}
+
+[data-theme="manga"] .settings-name {
+  font-weight: 700;
+}
+
+[data-theme="manga"] .study-intro {
+  overflow: hidden;
+  background: var(--color-surface);
+}
+
+[data-theme="manga"] .study-intro::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--manga-sugar) center / 100% 100% no-repeat;
+  animation: manga-sugar 1.6s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+[data-theme="manga"] .study-intro h2 {
+  position: relative;
+  color: var(--color-ink);
+  font-weight: 400;
+  font-size: clamp(2rem, 6vw, 3.6rem);
+  letter-spacing: 0.02em;
+  animation: manga-cim 0.45s 0.1s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+@keyframes manga-sugar {
+  from {
+    transform: scale(1.02);
+  }
+  to {
+    transform: scale(1.07);
+  }
+}
+
+@keyframes manga-cim {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+[data-theme="manga"] .result-score {
+  color: var(--color-ink);
+}
+
+[data-theme="manga"] .result-list li {
+  border: 1px solid var(--color-ink);
+  background: var(--color-surface);
+}
+
+[data-theme="manga"] .fan-question h3,
+[data-theme="manga"] .type-question,
+[data-theme="manga"] .swipe-question,
+[data-theme="manga"] .shuffle-question {
+  font-family: var(--font-body);
+  font-weight: 700;
+}
+
+[data-theme="manga"] .fan-face {
+  border: var(--manga-vonal);
+  font-family: var(--font-body);
+  font-weight: 500;
+}
+
+[data-theme="manga"] .fan-face--kerdes {
+  background: var(--manga-tonus), var(--color-surface);
+  color: var(--color-ink);
+  font-weight: 700;
+}
+
+[data-theme="manga"] .fan-card.helyes .fan-face--kerdes {
+  background: var(--color-ink);
+  color: var(--color-paper);
+}
+
+[data-theme="manga"] .swipe-card,
+[data-theme="manga"] .shuffle-face {
+  border: var(--manga-vonal);
+}
+
+[data-theme="manga"] .swipe-answer,
+[data-theme="manga"] .swipe-correct,
+[data-theme="manga"] .shuffle-answer {
+  padding: var(--space-3) var(--space-4);
+  border: 1.25px solid var(--color-ink);
+  background: var(--color-surface);
+  font-family: var(--font-body);
+  font-weight: 500;
+}
+
+[data-theme="manga"] .swipe-card--megoldas {
+  background: var(--manga-atmenet) center bottom / 100% auto no-repeat, var(--color-surface);
+}
+
+[data-theme="manga"] .swipe-verdict {
+  font-size: 2rem;
+}
+
+[data-theme="manga"] .practice-box {
+  border: 1.25px dashed var(--color-ink);
+}
+
+[data-theme="manga"] .theme-collage {
+  --panel-vonal: 1.5px;
+  --panel-vonal-szin: #111111;
+  --fuga: 8px;
+  background: var(--color-surface);
+}
+
+[data-theme="manga"] .loading .theme-collage {
+  --panel-vonal: 2px;
+  --fuga: 12px;
+  margin: var(--space-4) var(--space-4) 0;
+  background: var(--color-bg);
+}
+
+[data-theme="manga"] .theme-slide .theme-collage {
+  border: none;
+}
+
+[data-theme="manga"] .loading-title {
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}

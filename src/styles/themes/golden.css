@@ -1,0 +1,538 @@
+:root[data-theme="golden"] {
+  color-scheme: dark;
+
+  --color-bg: #15120f;
+  --color-surface: #191613;
+  --color-surface-back: #1f1b17;
+  --color-ink: #ece4d6;
+  --color-ink-soft: #cfc5b4;
+  --color-ink-muted: #978c7d;
+  --color-border: rgba(191, 164, 122, 0.18);
+  --color-border-strong: rgba(191, 164, 122, 0.5);
+
+  --color-accent: #bfa47a;
+  --color-accent-strong: #d4bd96;
+  --color-accent-soft: rgba(191, 164, 122, 0.1);
+  --color-accent-ink: #15120f;
+  --color-highlight: rgba(191, 164, 122, 0.24);
+
+  --color-paper: #ece4d6;
+  --color-gold: #bfa47a;
+
+  --color-success: #9db197;
+  --color-error: #d0675c;
+
+  --font-heading: "Tenor Sans", "Jost", "Helvetica Neue", sans-serif;
+  --font-body: "Jost", "Helvetica Neue", system-ui, sans-serif;
+
+  --radius-md: 2px 6px 2px 6px;
+  --radius-lg: 2px 20px 2px 20px;
+  --radius-pill: 1px;
+
+  --shadow-panel: 0 18px 36px -26px rgba(0, 0, 0, 0.9);
+  --shadow-panel-strong: 0 36px 90px -34px rgba(0, 0, 0, 0.95);
+
+  --arany-papir: url("../../assets/themes/golden/paper.webp") 0 0 / 128px 128px;
+  --arany-keret: inset 0 0 0 6px var(--color-surface), inset 0 0 0 7px rgba(191, 164, 122, 0.1);
+  --meander: url("../../assets/themes/golden/meander.svg");
+}
+
+[data-theme="golden"] body {
+  background:
+    linear-gradient(180deg, rgba(21, 18, 15, 0.15) 0, rgba(21, 18, 15, 0.55) 45%, var(--color-bg) 100%) center top / 100% 520px no-repeat,
+    url("../../assets/themes/golden/metal.webp") center top / 100% 520px no-repeat,
+    var(--color-bg);
+  font-weight: 300;
+}
+
+[data-theme="golden"] #root > header::before {
+  width: 6px;
+  height: 6px;
+  transform: rotate(45deg);
+}
+
+[data-theme="golden"] #root > header h1,
+[data-theme="golden"] .loading-title,
+[data-theme="golden"] .modal-title,
+[data-theme="golden"] .settings-title,
+[data-theme="golden"] .result-title,
+[data-theme="golden"] .theme-slide-name {
+  color: var(--color-accent-strong);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+}
+
+[data-theme="golden"] #root > header h1 {
+  font-size: clamp(1.7rem, 3.6vw, 2.4rem);
+}
+
+[data-theme="golden"] #root > header p,
+[data-theme="golden"] .loading-text,
+[data-theme="golden"] .settings-lead,
+[data-theme="golden"] .flip-hint {
+  font-weight: 300;
+  letter-spacing: 0.14em;
+  text-transform: none;
+}
+
+[data-theme="golden"] #root > header::after {
+  width: 140px;
+  height: 14px;
+  background: var(--meander) 0 0 / 14px 14px repeat-x;
+  opacity: 0.45;
+}
+
+[data-theme="golden"] #root > .high-score {
+  color: var(--color-accent);
+  font-family: var(--font-heading);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.26em;
+}
+
+[data-theme="golden"] .theme-trigger,
+[data-theme="golden"] .carousel-arrow,
+[data-theme="golden"] .shuffle-next,
+[data-theme="golden"] .modal-close {
+  border: 1px solid var(--color-border-strong);
+  color: var(--color-accent);
+}
+
+[data-theme="golden"] .theme-trigger:hover,
+[data-theme="golden"] .carousel-arrow:hover:not(:disabled),
+[data-theme="golden"] .shuffle-next:hover,
+[data-theme="golden"] .modal-close:hover {
+  border-color: var(--color-accent);
+  background: var(--color-accent-soft);
+  color: var(--color-accent-strong);
+}
+
+[data-theme="golden"] .stats-panel {
+  border-color: var(--color-border);
+}
+
+[data-theme="golden"] .stats-progress {
+  height: 1px;
+  background: var(--color-border);
+}
+
+[data-theme="golden"] .stats-bar {
+  background: var(--color-accent);
+}
+
+[data-theme="golden"] .stats-numbers,
+[data-theme="golden"] .stats-topic,
+[data-theme="golden"] .cloud-btn,
+[data-theme="golden"] .stats-start,
+[data-theme="golden"] .theme-apply,
+[data-theme="golden"] .btn-learned,
+[data-theme="golden"] .modal-actions button,
+[data-theme="golden"] #card-form label,
+[data-theme="golden"] .form-icon,
+[data-theme="golden"] .add-card,
+[data-theme="golden"] .face .topic,
+[data-theme="golden"] .settings-start,
+[data-theme="golden"] .result-again,
+[data-theme="golden"] .type-check,
+[data-theme="golden"] .type-next,
+[data-theme="golden"] .swipe-next,
+[data-theme="golden"] .swipe-igen,
+[data-theme="golden"] .swipe-nem {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+}
+
+[data-theme="golden"] .stats-start,
+[data-theme="golden"] .theme-apply,
+[data-theme="golden"] .btn-learned,
+[data-theme="golden"] .cloud-btn:not(.cloud-btn--ghost):not(.cloud-btn--primary),
+[data-theme="golden"] #btn-close-modal,
+[data-theme="golden"] #import-modal .modal-actions button.import-secondary {
+  border: 1px solid var(--color-border-strong);
+  background: transparent;
+  color: var(--color-accent);
+}
+
+[data-theme="golden"] .stats-start:hover,
+[data-theme="golden"] .theme-apply:hover:not(:disabled),
+[data-theme="golden"] .btn-learned:hover,
+[data-theme="golden"] .cloud-btn:not(.cloud-btn--ghost):not(.cloud-btn--primary):hover:not(:disabled),
+[data-theme="golden"] #btn-close-modal:hover,
+[data-theme="golden"] #import-modal .modal-actions button.import-secondary:hover {
+  border-color: var(--color-accent);
+  background: var(--color-accent-soft);
+  color: var(--color-accent-strong);
+}
+
+[data-theme="golden"] .cloud-btn--primary,
+[data-theme="golden"] .settings-start,
+[data-theme="golden"] .result-again,
+[data-theme="golden"] .type-check,
+[data-theme="golden"] .type-next,
+[data-theme="golden"] .swipe-next,
+[data-theme="golden"] .modal-actions button[type="submit"],
+[data-theme="golden"] #import-modal .modal-actions button.import-primary {
+  border: 1px solid var(--color-accent);
+  background: var(--color-accent);
+  color: var(--color-accent-ink);
+}
+
+[data-theme="golden"] .cloud-btn--primary:hover:not(:disabled),
+[data-theme="golden"] .settings-start:hover,
+[data-theme="golden"] .result-again:hover,
+[data-theme="golden"] .type-check:hover,
+[data-theme="golden"] .type-next:hover,
+[data-theme="golden"] .swipe-next:hover,
+[data-theme="golden"] .modal-actions button[type="submit"]:hover,
+[data-theme="golden"] #import-modal .modal-actions button.import-primary:hover {
+  border-color: var(--color-accent-strong);
+  background: var(--color-accent-strong);
+  color: var(--color-accent-ink);
+}
+
+[data-theme="golden"] .theme-apply.is-active {
+  background: transparent;
+  color: var(--color-accent);
+}
+
+[data-theme="golden"] .face {
+  border: none;
+  background: var(--arany-papir), var(--color-surface);
+  box-shadow: var(--shadow-panel);
+}
+
+[data-theme="golden"] .face .topic {
+  color: var(--color-accent);
+  font-size: 0.56rem;
+  letter-spacing: 0.3em;
+}
+
+[data-theme="golden"] .card-symbol {
+  justify-content: flex-start;
+  margin-top: var(--space-4);
+  color: var(--color-accent);
+  opacity: 0.75;
+}
+
+[data-theme="golden"] .card-symbol svg {
+  width: 20px;
+  height: 20px;
+}
+
+[data-theme="golden"] .question,
+[data-theme="golden"] .answer {
+  font-family: var(--font-body);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+[data-theme="golden"] .question {
+  line-height: 1.4;
+}
+
+[data-theme="golden"] .flip-card--solid .face--front {
+  border: none;
+  background: var(--arany-papir), #0b0a09;
+  box-shadow: var(--shadow-panel);
+}
+
+[data-theme="golden"] .flip-card--solid .face--front .question,
+[data-theme="golden"] .flip-card--solid .face--front .topic,
+[data-theme="golden"] .flip-card--solid .face--front .btn-icon {
+  color: var(--color-accent-strong);
+}
+
+[data-theme="golden"] .flip-card--solid .face--front .flip-hint {
+  color: var(--color-ink-muted);
+}
+
+[data-theme="golden"] .flip-card--outline .face--front {
+  border: none;
+  background: var(--arany-papir), #221d18;
+  box-shadow: var(--shadow-panel);
+}
+
+[data-theme="golden"] .flip-card--soft .face--front {
+  border: none;
+  background: var(--arany-papir), #cfc7ba;
+  box-shadow: var(--shadow-panel), inset 0 0 0 6px #cfc7ba, inset 0 0 0 7px rgba(110, 88, 60, 0.22);
+}
+
+[data-theme="golden"] .flip-card--soft .face--front .question {
+  color: #3a2d20;
+}
+
+[data-theme="golden"] .flip-card--soft .face--front .topic,
+[data-theme="golden"] .flip-card--soft .face--front .btn-icon,
+[data-theme="golden"] .flip-card--soft .face--front .card-symbol {
+  color: #7a6143;
+}
+
+[data-theme="golden"] .flip-card--soft .face--front .flip-hint {
+  color: #6f6353;
+}
+
+[data-theme="golden"] .face--back {
+  border: none;
+  background: var(--arany-papir), var(--color-surface-back);
+}
+
+[data-theme="golden"] .face--back .answer::before {
+  top: 2px;
+  width: 5px;
+  height: 5px;
+  transform: translateX(-50%) rotate(45deg);
+}
+
+[data-theme="golden"] .flip-card.is-learned .face,
+[data-theme="golden"] .flip-card.is-learned .face--front {
+  border-left: none;
+}
+
+[data-theme="golden"] .flip-card.is-learned .face--front .topic::after {
+  content: "";
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  margin-left: var(--space-2);
+  background: var(--color-accent);
+  transform: rotate(45deg);
+  vertical-align: middle;
+}
+
+[data-theme="golden"] .add-card {
+  border: 1px dashed var(--color-border-strong);
+  border-radius: var(--radius-lg);
+  color: var(--color-ink-muted);
+}
+
+[data-theme="golden"] .add-card:hover {
+  background: var(--arany-papir), var(--color-surface);
+  color: var(--color-accent);
+}
+
+[data-theme="golden"] dialog {
+  border: 1px solid var(--color-border-strong);
+  border-radius: 10px;
+  background: var(--arany-papir), var(--color-surface);
+  box-shadow: var(--shadow-panel-strong), var(--arany-keret);
+}
+
+[data-theme="golden"] dialog::backdrop,
+[data-theme="golden"] #study-modal::backdrop {
+  background: rgba(8, 7, 6, 0.8);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+[data-theme="golden"] .modal-title {
+  font-size: 1.05rem;
+}
+
+[data-theme="golden"] #import-modal .modal-title::before,
+[data-theme="golden"] #card-modal .modal-title::before {
+  width: 6px;
+  height: 6px;
+  transform: rotate(45deg);
+}
+
+[data-theme="golden"] #card-form input,
+[data-theme="golden"] #card-form textarea {
+  font-weight: 300;
+}
+
+[data-theme="golden"] .import-text,
+[data-theme="golden"] .settings-db,
+[data-theme="golden"] .type-input {
+  border-color: var(--color-border-strong);
+  background: rgba(0, 0, 0, 0.22);
+}
+
+[data-theme="golden"] #study-modal {
+  border-radius: 12px;
+}
+
+[data-theme="golden"] .study-head {
+  border-bottom-color: var(--color-border);
+}
+
+[data-theme="golden"] .study-progress,
+[data-theme="golden"] .study-score {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  color: var(--color-accent);
+}
+
+[data-theme="golden"] .settings-title {
+  font-size: 1.4rem;
+}
+
+[data-theme="golden"] .settings-title::after {
+  content: "";
+  display: block;
+  width: 112px;
+  height: 14px;
+  margin: var(--space-3) auto 0;
+  background: var(--meander) 0 0 / 14px 14px repeat-x;
+  opacity: 0.45;
+}
+
+[data-theme="golden"] .settings-item {
+  border-color: var(--color-border);
+  background: rgba(0, 0, 0, 0.18);
+}
+
+[data-theme="golden"] .settings-item:has(.settings-check:checked) {
+  border-color: var(--color-border-strong);
+}
+
+[data-theme="golden"] .settings-name {
+  font-weight: 400;
+  letter-spacing: 0.04em;
+}
+
+[data-theme="golden"] .study-intro {
+  background:
+    radial-gradient(circle at 50% 50%, color-mix(in srgb, var(--intro-szin) 22%, transparent), transparent 55%),
+    var(--color-bg);
+}
+
+[data-theme="golden"] .study-intro::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.14;
+  background: url("../../assets/themes/golden/gold-leaves.webp") center / min(560px, 80%) no-repeat;
+}
+
+[data-theme="golden"] .study-intro h2 {
+  position: relative;
+  padding: var(--space-5) 0;
+  background: linear-gradient(100deg, #9c7a3c 0%, #f1d596 38%, #b8904a 62%, #e8c97f 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+}
+
+[data-theme="golden"] .study-intro h2::before,
+[data-theme="golden"] .study-intro h2::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  width: 198px;
+  height: 18px;
+  background: var(--meander) 0 0 / 18px 18px repeat-x;
+  transform: translateX(-50%);
+}
+
+[data-theme="golden"] .study-intro h2::before {
+  top: 0;
+}
+
+[data-theme="golden"] .study-intro h2::after {
+  bottom: 0;
+}
+
+[data-theme="golden"] .result-score {
+  color: var(--color-accent-strong);
+}
+
+[data-theme="golden"] .result-list li {
+  border: 1px solid var(--color-border);
+  background: rgba(0, 0, 0, 0.18);
+}
+
+[data-theme="golden"] .fan-question h3,
+[data-theme="golden"] .type-question,
+[data-theme="golden"] .swipe-question,
+[data-theme="golden"] .shuffle-question,
+[data-theme="golden"] .shuffle-answer {
+  font-family: var(--font-body);
+  font-weight: 400;
+}
+
+[data-theme="golden"] .fan-face {
+  border: none;
+  font-family: var(--font-body);
+  font-weight: 400;
+}
+
+[data-theme="golden"] .fan-face--valasz {
+  background: var(--arany-papir), var(--color-surface);
+}
+
+[data-theme="golden"] .fan-face--kerdes {
+  background: var(--arany-papir), var(--color-surface-back);
+  color: var(--color-accent);
+}
+
+[data-theme="golden"] .swipe-card,
+[data-theme="golden"] .shuffle-face {
+  border: none;
+  background: var(--arany-papir), var(--color-surface);
+  box-shadow: var(--shadow-panel);
+}
+
+[data-theme="golden"] .swipe-card.helyes {
+  box-shadow: 0 0 0 1px var(--color-success);
+}
+
+[data-theme="golden"] .swipe-card.helytelen {
+  box-shadow: 0 0 0 1px var(--color-error);
+}
+
+[data-theme="golden"] .swipe-answer {
+  border-left: 1px solid var(--color-border-strong);
+  background: rgba(0, 0, 0, 0.2);
+  font-weight: 400;
+}
+
+[data-theme="golden"] .swipe-verdict {
+  text-transform: uppercase;
+  letter-spacing: 0.26em;
+}
+
+[data-theme="golden"] .swipe-correct {
+  font-weight: 400;
+}
+
+[data-theme="golden"] .practice-box {
+  border-color: var(--color-border-strong);
+  background: rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="golden"] .theme-collage {
+  --panel-vonal: 1px;
+  --panel-vonal-szin: rgba(191, 164, 122, 0.55);
+  --fuga: 8px;
+  background: transparent;
+}
+
+[data-theme="golden"] .theme-slide .theme-collage {
+  border: none;
+}
+
+[data-theme="golden"] .loading .theme-collage {
+  margin: var(--space-5) var(--space-5) 0;
+  background: var(--color-bg);
+}
+
+[data-theme="golden"] .loading-title {
+  font-size: clamp(1.3rem, 3vw, 1.9rem);
+}
+
+[data-theme="golden"] .loading-caption::after {
+  content: "";
+  width: 112px;
+  height: 14px;
+  margin-top: var(--space-2);
+  background: var(--meander) 0 0 / 14px 14px repeat-x;
+  opacity: 0.45;
+}

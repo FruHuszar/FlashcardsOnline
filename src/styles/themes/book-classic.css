@@ -1,0 +1,49 @@
+:root,
+:root[data-theme="book-classic"] {
+  --color-bg: #faf9f6;
+  --color-surface: #ffffff;
+  --color-surface-back: #f3f1ec;
+  --color-ink: #17171a;
+  --color-ink-soft: #3d3d42;
+  --color-ink-muted: #7a7873;
+  --color-border: #dedbd3;
+  --color-border-strong: #17171a;
+
+  --color-accent: #8a1c2b;
+  --color-accent-strong: #611220;
+  --color-accent-soft: rgba(138, 28, 43, 0.1);
+  --color-accent-ink: #ffffff;
+  --color-highlight: rgba(138, 28, 43, 0.18);
+
+  --color-paper: #faf9f6;
+  --color-gold: #e2bd72;
+
+  --color-success: #3a6b57;
+  --color-error: #9b3b32;
+}
+
+[data-theme="book-classic"] .card-symbol svg {
+  width: 28px;
+  height: 28px;
+}
+
+[data-theme="book-classic"] .flip-card--outline .face--front {
+  border-top: 2px solid var(--color-accent);
+}
+
+[data-theme="book-classic"] .flip-card--soft .face--front .question {
+  font-style: italic;
+}
+
+[data-theme="book-classic"] .flip-card--soft .face--front .card-symbol {
+  justify-content: flex-start;
+}
+
+[data-theme="book-classic"] .flip-card--solid .face--front .card-symbol svg {
+  width: 24px;
+  height: 24px;
+}
+
+[data-theme="book-classic"] .face--back {
+  background: linear-gradient(180deg, var(--color-surface) 0%, var(--color-surface-back) 100%);
+}
