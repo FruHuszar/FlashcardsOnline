@@ -149,7 +149,9 @@ export default function ImportModal({ nyitva, repo, onBezar, onValtozas, onAllap
           <p>
             Egy JSON tömb, vagy egy objektum <code>cards</code> kulccsal. Kötelező mezők:{" "}
             <code>question</code> és <code>answer</code>. Opcionális: <code>topic</code>,{" "}
-            <code>icon</code>, <code>is_learned</code>. Elfogadott aliasok:{" "}
+            <code>icon</code>, <code>is_learned</code> és <code>options</code> (a helytelen
+            válaszlehetőségek tömbje). Több helyes válasz esetén az <code>answer</code> is lehet
+            tömb. Elfogadott aliasok:{" "}
             <code>front</code>/<code>back</code>, <code>kerdes</code>/<code>valasz</code>,{" "}
             <code>term</code>/<code>definition</code>. Minden mező szövegként kerül be, HTML
             nem értelmeződik.

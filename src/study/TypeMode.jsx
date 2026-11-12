@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { flushSync } from "react-dom";
+import CardEntity from "../model/CardEntity.js";
 import { ertekeles } from "./answerCheck.js";
 import TypePractice from "./TypePractice.jsx";
 
@@ -8,6 +9,7 @@ export default function TypeMode({ kartya, onValasz }) {
   const [ertek, setErtek] = useState("");
   const [eredmeny, setEredmeny] = useState(null);
   const [gyakorlasKesz, setGyakorlasKesz] = useState(false);
+  const helyesValasz = CardEntity.valaszSzoveg(kartya);
 
   useEffect(() => {
     beviteli.current?.focus();
@@ -18,7 +20,7 @@ export default function TypeMode({ kartya, onValasz }) {
       return;
     }
 
-    flushSync(() => setEredmeny(ertekeles(ertek, kartya.answer)));
+    flushSync(() => setEredmeny(ertekeles(ertek, helyesValasz)));
   };
 
   const helyes = eredmeny?.helyes ?? false;
@@ -60,9 +62,9 @@ export default function TypeMode({ kartya, onValasz }) {
         )}
 
         {eredmeny !== null && !helyes ? (
-          <TypePractice szoveg={kartya.answer} onKesz={() => setGyakorlasKesz(true)} />
+          <TypePractice szoveg={helyesValasz} onKesz={() => setGyakorlasKesz(true)} />
         ) : (
-          <p className="type-correct">A pontos válasz: {kartya.answer}</p>
+          <p className="type-correct">A pontos válasz: {helyesValasz}</p>
         )}
 
         <button

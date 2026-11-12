@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
-import { kever } from "./modUtils.js";
+import CardEntity from "../model/CardEntity.js";
+import { idegenValaszok, kever, kulcsok, veletlenElem } from "./modUtils.js";
 
 const DARAB = 8;
 const MAX_HIBA = 2;
@@ -18,31 +19,30 @@ function betumeret(szoveg) {
   return MERETEK.find((obj) => hossz <= obj.hossz)?.betu ?? MIN_BETU;
 }
 
-function kulcs(obj) {
-  return String(obj?.answer ?? "").toLowerCase().trim();
-}
-
 export default function FanMatch({ kartya, lista, onValasz }) {
   const [hibak, setHibak] = useState(0);
   const [lezarva, setLezarva] = useState(false);
   const [forditott, setForditott] = useState([]);
 
   const lehetosegek = useMemo(() => {
-    const latott = new Set([kulcs(kartya)]);
-    const hibasak = [];
+    const helyesek = CardEntity.helyesek(kartya);
+    const sajat = kever(CardEntity.opciok(kartya)).slice(0, DARAB - 1);
+    const idegen = idegenValaszok(
+      lista,
+      kartya,
+      DARAB - 1 - sajat.length,
+      kulcsok([...helyesek, ...sajat])
+    );
 
-    kever(lista).forEach((obj) => {
-      const sajat = kulcs(obj);
-
-      if (latott.has(sajat) || hibasak.length >= DARAB - 1) {
-        return;
-      }
-
-      latott.add(sajat);
-      hibasak.push({ kartya: obj, helyes: false });
-    });
-
-    return kever([{ kartya, helyes: true }, ...hibasak]);
+    return kever([
+      { szoveg: veletlenElem(helyesek), hatulja: kartya.question, helyes: true },
+      ...sajat.map((szoveg) => ({ szoveg, hatulja: szoveg, helyes: false })),
+      ...idegen.map((obj) => ({
+        szoveg: obj.szoveg,
+        hatulja: obj.kartya.question,
+        helyes: false,
+      })),
+    ]);
   }, [kartya, lista]);
 
   const szog = 360 / lehetosegek.length;
@@ -95,19 +95,19 @@ export default function FanMatch({ kartya, lista, onValasz }) {
         <div className="fan-wheel">
           {lehetosegek.map((obj, index) => (
             <button
-              key={obj.kartya.id}
+              key={index}
               type="button"
               className={osztaly(index, obj)}
               style={{
                 "--szog": `${index * szog}deg`,
-                "--betu": betumeret(obj.kartya.answer),
+                "--betu": betumeret(obj.szoveg),
               }}
               data-helyes={String(obj.helyes)}
               onClick={() => valasztas(index, obj.helyes)}
             >
               <span className="fan-inner">
-                <span className="fan-face fan-face--valasz">{obj.kartya.answer}</span>
-                <span className="fan-face fan-face--kerdes">{obj.kartya.question}</span>
+                <span className="fan-face fan-face--valasz">{obj.szoveg}</span>
+                <span className="fan-face fan-face--kerdes">{obj.hatulja}</span>
               </span>
             </button>
           ))}

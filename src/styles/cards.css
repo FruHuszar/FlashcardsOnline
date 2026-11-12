@@ -6,6 +6,7 @@
 .face--back .answer {
   overflow-wrap: anywhere;
   hyphens: auto;
+  white-space: pre-wrap;
 }
 
 .face--front > .question {
@@ -155,6 +156,78 @@
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--color-ink-muted);
+}
+
+.list-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.list-field legend {
+  margin-bottom: var(--space-1);
+  padding: 0;
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+}
+
+.list-field-row {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--space-2);
+}
+
+.list-field-row textarea {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.list-field-remove,
+.list-field-add {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1);
+  border: none;
+  background: transparent;
+  color: var(--color-ink-muted);
+  cursor: pointer;
+  transition: color var(--transition-fast);
+}
+
+.list-field-remove {
+  flex: none;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+}
+
+.list-field-remove:hover:not(:disabled) {
+  color: var(--color-error);
+}
+
+.list-field-remove:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.list-field-add {
+  align-self: flex-start;
+  padding: var(--space-1) 0;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.list-field-add:hover {
+  color: var(--color-accent);
 }
 
 .icon-picker {

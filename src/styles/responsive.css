@@ -76,6 +76,15 @@ main#card-grid {
     width: 94vw;
   }
 
+  .choice {
+    padding: var(--space-5) var(--space-4);
+  }
+
+  .choice-grid,
+  .choice-grid--sok {
+    grid-template-columns: 1fr;
+  }
+
   .import-row {
     flex-direction: column;
     align-items: flex-start;

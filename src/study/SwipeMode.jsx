@@ -1,7 +1,14 @@
 import { useEffect, useRef, useState } from "react";
-import { ellenorzes, veletlenKartya } from "./modUtils.js";
+import CardEntity from "../model/CardEntity.js";
+import { ellenorzes, veletlenElem, veletlenKartya } from "./modUtils.js";
 
 const HUZAS_HATAR = 110;
+
+function rosszValasz(kartya, lista) {
+  const opciok = CardEntity.opciok(kartya);
+  const forras = opciok.length > 0 ? opciok : CardEntity.helyesek(veletlenKartya(lista, kartya));
+  return veletlenElem(forras);
+}
 
 export default function SwipeMode({ kartya, lista, onValasz }) {
   const kartyaElem = useRef(null);
@@ -12,7 +19,7 @@ export default function SwipeMode({ kartya, lista, onValasz }) {
   const [tevedes, setTevedes] = useState(false);
 
   const valasz = useRef(
-    Math.random() < 0.5 ? kartya.answer : veletlenKartya(lista, kartya).answer
+    Math.random() < 0.5 ? veletlenElem(CardEntity.helyesek(kartya)) : rosszValasz(kartya, lista)
   );
   const kuldve = useRef(false);
   const parositasHelyes = ellenorzes(valasz.current, kartya);
@@ -111,7 +118,7 @@ export default function SwipeMode({ kartya, lista, onValasz }) {
           <article className="swipe-card swipe-card--megoldas" role="status">
             <p className="swipe-verdict">Helytelen</p>
             <div className="swipe-body">
-              <p className="swipe-correct">{kartya.answer}</p>
+              <p className="swipe-correct">{CardEntity.valaszSzoveg(kartya)}</p>
             </div>
           </article>
         ) : (

@@ -37,6 +37,17 @@ export default class JsonImporter {
           topic: "HTTP",
           question: "Mit jelent a 404-es státuszkód?",
           answer: "Not Found – a kért erőforrás nem található.",
+          options: [
+            "OK – a kérés sikeresen teljesült.",
+            "Forbidden – nincs jogosultság az erőforráshoz.",
+            "Internal Server Error – szerveroldali hiba történt.",
+          ],
+        },
+        {
+          topic: "HTTP",
+          question: "Melyik HTTP metódusok biztonságosak (safe)?",
+          answer: ["GET", "HEAD"],
+          options: ["POST", "DELETE"],
         },
         {
           topic: "SQL",

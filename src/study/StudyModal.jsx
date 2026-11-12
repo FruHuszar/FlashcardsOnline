@@ -5,6 +5,7 @@ import StudySettings from "./StudySettings.jsx";
 import FanMatch from "./FanMatch.jsx";
 import SwipeMode from "./SwipeMode.jsx";
 import TypeMode from "./TypeMode.jsx";
+import ChoiceMode from "./ChoiceMode.jsx";
 import ShuffleMode from "./ShuffleMode.jsx";
 import { kever } from "./modUtils.js";
 
@@ -25,6 +26,12 @@ export const MODOK = {
     nev: "Gépelős kvíz",
     elem: TypeMode,
     szin: "var(--color-accent-strong)",
+    pontozott: true,
+  },
+  choice: {
+    nev: "Feleletválasztós",
+    elem: ChoiceMode,
+    szin: "var(--color-gold)",
     pontozott: true,
   },
   shuffle: {

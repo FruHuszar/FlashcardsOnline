@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import CardEntity from "../model/CardEntity.js";
 
 const HUZAS_HATAR = 90;
 const KATTINTAS_TUR = 6;
@@ -135,7 +136,7 @@ export default function ShuffleMode({ kartya, onValasz }) {
             <div className="shuffle-face shuffle-face--back" aria-hidden={!forditva}>
               <span className="topic">{kartya.topic}</span>
               <div className="shuffle-body">
-                <p className="shuffle-answer">{kartya.answer}</p>
+                <p className="shuffle-answer">{CardEntity.valaszSzoveg(kartya)}</p>
               </div>
             </div>
           </div>

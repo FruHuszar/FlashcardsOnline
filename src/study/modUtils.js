@@ -1,9 +1,11 @@
-export function egyszerusit(szoveg) {
-  return String(szoveg ?? "").toLowerCase().trim();
+import CardEntity from "../model/CardEntity.js";
+
+export function kulcsok(szovegek) {
+  return new Set(szovegek.map(CardEntity.egyszerusit));
 }
 
 export function ellenorzes(valasz, kartya) {
-  return egyszerusit(valasz) === egyszerusit(kartya?.answer);
+  return kulcsok(CardEntity.helyesek(kartya)).has(CardEntity.egyszerusit(valasz));
 }
 
 export function kever(lista) {
@@ -17,6 +19,10 @@ export function kever(lista) {
   return masolat;
 }
 
+export function veletlenElem(lista) {
+  return lista[Math.floor(Math.random() * lista.length)];
+}
+
 export function veletlenKartya(lista, kartya) {
   const maradek = lista.filter((obj) => Number(obj.id) !== Number(kartya.id));
 
@@ -24,5 +30,28 @@ export function veletlenKartya(lista, kartya) {
     return kartya;
   }
 
-  return maradek[Math.floor(Math.random() * maradek.length)];
+  return veletlenElem(maradek);
+}
+
+export function idegenValaszok(lista, kartya, darab, kizart) {
+  const latott = new Set(kizart);
+  const eredmeny = [];
+
+  kever(lista).forEach((obj) => {
+    if (eredmeny.length >= darab || Number(obj.id) === Number(kartya.id)) {
+      return;
+    }
+
+    const szoveg = veletlenElem(CardEntity.helyesek(obj));
+    const kulcs = CardEntity.egyszerusit(szoveg);
+
+    if (latott.has(kulcs)) {
+      return;
+    }
+
+    latott.add(kulcs);
+    eredmeny.push({ szoveg, kartya: obj });
+  });
+
+  return eredmeny;
 }

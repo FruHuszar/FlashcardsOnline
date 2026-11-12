@@ -3,6 +3,7 @@ import { Palette } from "lucide-react";
 import { CONFIG } from "./config.js";
 import LocalStore from "./services/LocalStore.js";
 import CardRepository from "./services/CardRepository.js";
+import CardEntity from "./model/CardEntity.js";
 import GoogleAuth from "./cloud/GoogleAuth.js";
 import DriveClient from "./cloud/DriveClient.js";
 import SyncService from "./cloud/SyncService.js";
@@ -73,7 +74,7 @@ export default function App() {
     const szo = kereses.toLowerCase().trim();
 
     return lista.filter((obj) => {
-      const szoveg = `${obj.topic} ${obj.question} ${obj.answer}`.toLowerCase();
+      const szoveg = `${obj.topic} ${obj.question} ${CardEntity.valaszSzoveg(obj)}`.toLowerCase();
       const temaEgyezik =
         valasztottTemak.length === 0 || valasztottTemak.includes(obj.topic);
       return temaEgyezik && szoveg.includes(szo);
@@ -107,6 +108,7 @@ export default function App() {
       topic: obj.topic,
       question: obj.question,
       answer: obj.answer,
+      options: obj.options,
       icon: obj.icon,
     };
 

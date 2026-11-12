@@ -470,7 +470,8 @@
 }
 
 [data-theme="tk"] #card-form label,
-[data-theme="tk"] .form-icon {
+[data-theme="tk"] .form-icon,
+[data-theme="tk"] .list-field legend {
   text-transform: lowercase;
   letter-spacing: 0.2em;
 }

@@ -2,9 +2,15 @@ import { useEffect, useState } from "react";
 import useDialog from "./useDialog.js";
 import IconPicker from "./IconPicker.jsx";
 import CloseButton from "./CloseButton.jsx";
+import ListaMezo from "./ListaMezo.jsx";
+import CardEntity from "../model/CardEntity.js";
 import { ALAP_IKON } from "../design/ikonKeszlet.js";
 
-const URES = { id: null, topic: "", question: "", answer: "", icon: ALAP_IKON };
+const URES = { id: null, topic: "", question: "", helyesek: [""], opciok: [], icon: ALAP_IKON };
+
+function kitoltott(lista) {
+  return lista.map((szoveg) => szoveg.trim()).filter(Boolean);
+}
 
 export default function CardModal({ kartya, onMentes, onBezar }) {
   const nyitva = kartya !== null;
@@ -22,12 +28,14 @@ export default function CardModal({ kartya, onMentes, onBezar }) {
       id: kartya.id ?? null,
       topic: kartya.topic ?? "",
       question: kartya.question ?? "",
-      answer: kartya.answer ?? "",
+      helyesek: [...CardEntity.helyesek(kartya)],
+      opciok: [...CardEntity.opciok(kartya)],
       icon: kartya.icon ?? ALAP_IKON,
     });
   }, [nyitva, kartya]);
 
   const mezo = (nev) => (ok) => setUrlap((elozo) => ({ ...elozo, [nev]: ok.target.value }));
+  const lista = (nev) => (ertekek) => setUrlap((elozo) => ({ ...elozo, [nev]: ertekek }));
 
   const kuldes = (ok) => {
     ok.preventDefault();
@@ -36,12 +44,13 @@ export default function CardModal({ kartya, onMentes, onBezar }) {
       id: urlap.id,
       topic: urlap.topic.trim(),
       question: urlap.question.trim(),
-      answer: urlap.answer.trim(),
+      answer: kitoltott(urlap.helyesek),
+      options: kitoltott(urlap.opciok),
       icon: urlap.icon,
     };
 
-    if (!adatok.topic || !adatok.question || !adatok.answer) {
-      setHiba("Minden mező kitöltése kötelező.");
+    if (!adatok.topic || !adatok.question || adatok.answer.length === 0) {
+      setHiba("A témakör, a kérdés és legalább egy helyes válasz kitöltése kötelező.");
       return;
     }
 
@@ -81,25 +90,32 @@ export default function CardModal({ kartya, onMentes, onBezar }) {
 
         <label>
           Kérdés
-          <input
-            type="text"
+          <textarea
             name="question"
+            rows={3}
             placeholder="Mi a kérdés?"
             value={urlap.question}
             onChange={mezo("question")}
           />
         </label>
 
-        <label>
-          Válasz
-          <textarea
-            name="answer"
-            rows={3}
-            placeholder="Mi a válasz?"
-            value={urlap.answer}
-            onChange={mezo("answer")}
-          />
-        </label>
+        <ListaMezo
+          cimke="Helyes válaszok"
+          ertekek={urlap.helyesek}
+          sorok={2}
+          helyorzo="Mi a válasz?"
+          minDarab={1}
+          onValtozas={lista("helyesek")}
+        />
+
+        <ListaMezo
+          cimke="Helytelen lehetőségek"
+          ertekek={urlap.opciok}
+          sorok={1}
+          helyorzo="Hibás válaszlehetőség"
+          minDarab={0}
+          onValtozas={lista("opciok")}
+        />
 
         <div className="modal-actions">
           <button type="button" id="btn-close-modal" onClick={onBezar}>

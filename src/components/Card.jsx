@@ -1,4 +1,5 @@
 import { useState } from "react";
+import CardEntity from "../model/CardEntity.js";
 import CardIcon from "../design/CardIcons.jsx";
 import { forma, valtozat } from "../design/CardStyle.js";
 import { kerdesStilus, valaszBetu } from "../design/textFit.js";
@@ -8,6 +9,7 @@ export default function Card({ kartya, onSzerkesztes, onTorles, onTanult }) {
   const tanult = Boolean(Number(kartya.is_learned));
   const stilus = valtozat(kartya);
   const alak = forma(kartya);
+  const valasz = CardEntity.valaszSzoveg(kartya);
 
   const forgat = (ok) => {
     if (ok.target.closest("button")) {
@@ -31,7 +33,7 @@ export default function Card({ kartya, onSzerkesztes, onTorles, onTanult }) {
       data-id={kartya.id}
       style={{
         ...kerdesStilus(kartya.question),
-        "--valasz-betu": valaszBetu(kartya.answer),
+        "--valasz-betu": valaszBetu(valasz),
       }}
     >
       <div className="flip-card-inner" onClick={forgat}>
@@ -72,7 +74,7 @@ export default function Card({ kartya, onSzerkesztes, onTorles, onTanult }) {
           <header className="card-header">
             <span className="topic">{kartya.topic}</span>
           </header>
-          <p className="answer">{kartya.answer}</p>
+          <p className="answer">{valasz}</p>
           <button
             type="button"
             className="btn-learned"

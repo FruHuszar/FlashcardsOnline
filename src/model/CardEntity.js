@@ -2,12 +2,22 @@ import { CONFIG } from "../config.js";
 import { ALAP_IKON, ervenyesIkon } from "../design/ikonKeszlet.js";
 
 export default class CardEntity {
-  static MEZOK = ["id", "topic", "question", "answer", "icon", "is_learned", "created_at"];
+  static MEZOK = [
+    "id",
+    "topic",
+    "question",
+    "answer",
+    "options",
+    "icon",
+    "is_learned",
+    "created_at",
+  ];
 
   static ALIASOK = {
     topic: ["topic", "temakor", "tema", "category", "kategoria", "deck", "tag"],
     question: ["question", "kerdes", "q", "front", "eleje", "term"],
     answer: ["answer", "valasz", "a", "back", "hatulja", "definition", "def"],
+    options: ["options", "opciok", "lehetosegek", "valaszlehetosegek", "choices"],
     is_learned: ["is_learned", "learned", "tanult", "megtanulva", "known"],
     icon: ["icon", "ikon", "symbol", "jel"],
   };
@@ -19,9 +29,9 @@ export default class CardEntity {
 
     const topic = CardEntity.#mezo(nyers, "topic", CONFIG.TEMAKOR_MAX_HOSSZ);
     const question = CardEntity.#mezo(nyers, "question", CONFIG.MEZO_MAX_HOSSZ);
-    const answer = CardEntity.#mezo(nyers, "answer", CONFIG.MEZO_MAX_HOSSZ);
+    const helyesek = CardEntity.#szovegek(nyers, "answer", CONFIG.VALASZ_MAX_DARAB, []);
 
-    if (question === "" || answer === "") {
+    if (question === "" || helyesek.length === 0) {
       return null;
     }
 
@@ -29,7 +39,8 @@ export default class CardEntity {
       id: Number(id),
       topic: topic === "" ? "Általános" : topic,
       question,
-      answer,
+      answer: helyesek.length === 1 ? helyesek[0] : helyesek,
+      options: CardEntity.#szovegek(nyers, "options", CONFIG.OPCIO_MAX_DARAB, helyesek),
       icon: CardEntity.#ikon(nyers),
       is_learned: CardEntity.#tanult(nyers) ? 1 : 0,
       created_at: CardEntity.#datum(nyers),
@@ -45,10 +56,32 @@ export default class CardEntity {
     return uj;
   }
 
+  static helyesek(kartya) {
+    const ertek = kartya?.answer;
+    return Array.isArray(ertek) ? ertek : [String(ertek ?? "")];
+  }
+
+  static opciok(kartya) {
+    return Array.isArray(kartya?.options) ? kartya.options : [];
+  }
+
+  static valaszSzoveg(kartya) {
+    return CardEntity.helyesek(kartya).join("\n");
+  }
+
+  static egyszerusit(szoveg) {
+    return String(szoveg ?? "").toLowerCase().trim();
+  }
+
   static kulcs(obj) {
-    return [obj.topic, obj.question, obj.answer]
-      .map((szoveg) => String(szoveg).toLowerCase().trim())
-      .join("\u0000");
+    const halmaz = (lista) => lista.map(CardEntity.egyszerusit).sort().join("\u0001");
+
+    return [
+      CardEntity.egyszerusit(obj.topic),
+      CardEntity.egyszerusit(obj.question),
+      halmaz(CardEntity.helyesek(obj)),
+      halmaz(CardEntity.opciok(obj)),
+    ].join("\u0000");
   }
 
   static #objektum(ertek) {
@@ -59,6 +92,26 @@ export default class CardEntity {
     const nevek = CardEntity.ALIASOK[nev] ?? [nev];
     const talalt = nevek.find((kulcs) => CardEntity.#sajat(nyers, kulcs));
     return CardEntity.#tisztit(talalt ? nyers[talalt] : "", maxHossz);
+  }
+
+  static #szovegek(nyers, nev, maxDarab, kizart) {
+    const talalt = CardEntity.ALIASOK[nev].find((kulcs) => CardEntity.#sajat(nyers, kulcs));
+    const ertek = talalt ? nyers[talalt] : [];
+    const latott = new Set(kizart.map(CardEntity.egyszerusit));
+
+    return (Array.isArray(ertek) ? ertek : [ertek])
+      .map((elem) => CardEntity.#tisztit(elem, CONFIG.MEZO_MAX_HOSSZ))
+      .filter((szoveg) => {
+        const kulcs = CardEntity.egyszerusit(szoveg);
+
+        if (szoveg === "" || latott.has(kulcs)) {
+          return false;
+        }
+
+        latott.add(kulcs);
+        return true;
+      })
+      .slice(0, maxDarab);
   }
 
   static #sajat(nyers, kulcs) {
